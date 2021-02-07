@@ -1,7 +1,7 @@
 const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
 
 const DEFAULT_FEEDS = [
-  'https://recostream.go.mail.ru/?n=6&stream_id=lenta_pulse_mail_ru&query_type=recommends',
+  'https://recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends',
   'https://recostream.go.mail.ru/?source_filter_id=8283545368347858465&use_orig_imgs=1&title_length=150&ver=1.103.0&n=12&stream_id=source_only&query_type=recommends',
 ];
 
@@ -88,13 +88,8 @@ function parseFeed(text) {
         timestamp: new Date(tag(item, 'updated')),
       }));
     case 'html':
-      //console.log('t',text)
       const jsonData = JSON.parse(text);
-      //for (var i in jsonData.items) {
-      //  console.log(i,jsonData.items[i].data.snippet);
-      //}
       return map(jsonData.items, item => ({
-        //console.log(item.data.snippet),
         link: item.data.url,
         title: item.data.title,
         timestamp: new Date(item.data.pubdate*1000),
@@ -152,15 +147,12 @@ function render(urlFilter = '') {
   newsList.forEach((n, i) => {
     // Get or create a new item
     let el = cards.childNodes[i];
-    //console.log(n,i)
     if (!el) {
       el = document.importNode(cardsItem.content, true).querySelector('article');
       cards.appendChild(el);
     }
-    //console.log(el)
     el.querySelector('.card__title').innerText = n.title;
     el.querySelector('.card__img').style.backgroundImage = "url('"+n.img+"')";
-    //h = el.querySelector('.card__img--hover');
     el.querySelector('.card__img--hover').style.backgroundImage = "url('"+n.img+"')";
     el.querySelector('a').href = n.link;
     el.querySelector('.card__author').href = n.link;

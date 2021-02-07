@@ -1,6 +1,6 @@
 {
-    "name": "Headline",
-    "short_name": "Headline",
+    "name": "HeadlinePulse",
+    "short_name": "HeadlinePulse",
     "icons": [
         {
             "src": "icons/android-chrome-192x192.png",

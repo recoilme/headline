@@ -1,8 +1,18 @@
-# this repo
+# headline fork (just for fun)
 
-Ability to read pulse.mail.ru, example: [https://recoilme.github.io/headline](https://recoilme.github.io/headline)
+Fork of the briliant ascetic RSS reader: [https://github.com/zserge/headline](zserge/headline)
 
-# headline
+New:
+
+ - Parser for recostreams
+ - Style from https://codepen.io/veronicadev/pen/WJyOwG
+
+Server less progressive web app. Install:
+
+Android -  menu/add on main screen
+
+
+## headline description
 
 Ascetic RSS reader in JavaScript, no server required, you are fully in control of your reader. Very predictable, fast and small - about 4KB in size when minified. Ah, it's also a PWA so it even works offline.
 
