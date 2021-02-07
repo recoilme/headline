@@ -13,6 +13,11 @@ Android -  menu/add on main screen
 
 Web version: [https://recoilme.github.io/headline/](https://recoilme.github.io/headline/)
 
+Scan with QR code for install
+
+![qrcode](qrcode_recoilme.github.io)
+
+
 ## headline description
 
 Ascetic RSS reader in JavaScript, no server required, you are fully in control of your reader. Very predictable, fast and small - about 4KB in size when minified. Ah, it's also a PWA so it even works offline.
