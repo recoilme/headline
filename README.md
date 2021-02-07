@@ -1,6 +1,6 @@
 # headline fork (just for fun)
 
-Fork of the briliant ascetic RSS reader: [https://github.com/zserge/headline](zserge/headline)
+Fork of the briliant ascetic RSS reader: [https://github.com/zserge/headline](https://github.com/zserge/headline)
 
 New:
 
@@ -11,6 +11,7 @@ Server less progressive web app. Install:
 
 Android -  menu/add on main screen
 
+Web version: [https://recoilme.github.io/headline/](https://recoilme.github.io/headline/)
 
 ## headline description
 
