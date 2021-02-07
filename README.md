@@ -15,7 +15,7 @@ Web version: [https://recoilme.github.io/headline/](https://recoilme.github.io/h
 
 Scan with QR code for install
 
-![qrcode](qrcode_recoilme.github.io)
+![qrcode](qrcode_recoilme.github.io.png)
 
 
 ## headline description
