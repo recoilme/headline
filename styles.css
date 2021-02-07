@@ -21,9 +21,11 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { font-family: var(--font-family); font-size: 62.5%; }
-body { font-size: 1.6em; background: var(--color-background); color: var(--color-text); line-height: var(--line-height); }
+body { 
+  font-size: 1.6em; 
+  background: var(--color-background); color: var(--color-text); line-height: var(--line-height); }
 ul, li { list-style: none; padding: 0; }
-a { cursor: pointer; color: var(--text-color); font-style: italic; text-decoration: underline; }
+a { cursor: pointer; color: var(--text-color);  text-decoration: underline; }
 button, textarea {
   font-family: inherit;
   font-size: inherit;
@@ -36,7 +38,7 @@ button, textarea {
 }
 textarea { max-width: 100%; }
 button { font-weight: bold; padding: 0.5rem 2rem; background-color: var(--color-text); color: var(--color-background); }
-section { margin: 2rem; }
+/*section { margin: 2rem; }*/
 
 /*
  * Loading indicator

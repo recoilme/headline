@@ -15,11 +15,11 @@ const menu = document.querySelector('#menu');
 const title = document.querySelector('#title');
 const settings = document.querySelector('#settings');
 const keywords = document.querySelector('#settings textarea');
-const news = document.querySelector('#news');
 const newsFeeds = document.querySelector('#feeds');
+const cards = document.querySelector('#cards');
 
 const feedItem = document.querySelector('#settings-feed-item');
-const newsItem = document.querySelector('#news-item');
+const cardsItem = document.querySelector('#card-item');
 
 // State = {lastSeen: Date, feeds: Array<Feed>}
 // Feed = {url: String, Entries: Array<Entry>}
@@ -70,6 +70,7 @@ function parseFeed(text) {
   const map = (c, f) => Array.prototype.slice.call(c, 0).map(f);
   const tag = (item, name) =>
     (item.getElementsByTagName(name)[0] || {}).textContent;
+  //console.log('1',xml.documentElement.nodeName);
   switch (xml.documentElement.nodeName) {
     case 'rss':
       return map(xml.documentElement.getElementsByTagName('item'), item => ({
@@ -88,6 +89,20 @@ function parseFeed(text) {
         title: tag(item, 'title'),
         timestamp: new Date(tag(item, 'updated')),
       }));
+    case 'html':
+      //console.log('t',text)
+      const jsonData = JSON.parse(text);
+      //for (var i in jsonData.items) {
+      //  console.log(i,jsonData.items[i].data.snippet);
+      //}
+      return map(jsonData.items, item => ({
+        //console.log(item.data.snippet),
+        link: item.data.url,
+        title: item.data.title,
+        timestamp: new Date(item.data.pubdate*1000),
+        img: item.data.pictures[0].url,
+      }));
+      return [];
   }
   return [];
 }
@@ -135,32 +150,24 @@ function render(urlFilter = '') {
     .sort((a, b) => b.timestamp - a.timestamp)
     .slice(0, MAX_NEWS_ON_PAGE);
 
-  news.innerHTML = '';
+  cards.innerHTML = '';
   newsList.forEach((n, i) => {
     // Get or create a new item
-    let el = news.childNodes[i];
+    let el = cards.childNodes[i];
+    //console.log(n,i)
     if (!el) {
-      el = document.importNode(newsItem.content, true).querySelector('li');
-      news.appendChild(el);
+      el = document.importNode(cardsItem.content, true).querySelector('article');
+      cards.appendChild(el);
     }
-
-    // If the day has changed between the two adjacent items - show new date delimiter
-    const day = i ? newsList[i - 1].timestamp.toDateString() : '';
-    if (n.timestamp.toDateString() !== day) {
-      el.querySelector('h3').innerText =
-        n.timestamp.toLocaleDateString(undefined, { month: 'long', day: '2-digit' });
-    } else {
-      el.querySelector('h3').innerText = '';
-    }
-
+    //console.log(el)
+    el.querySelector('.card__title').innerText = n.title;
+    el.querySelector('.card__img').style.backgroundImage = "url('"+n.img+"')";
+    //h = el.querySelector('.card__img--hover');
+    el.querySelector('.card__img--hover').style.backgroundImage = "url('"+n.img+"')";
     el.querySelector('a').href = n.link;
-    el.querySelector('span').innerHTML = n.title;
-    if (highlight(n.title)) {
-      el.querySelector('span').classList.add('marked');
-    } else {
-      el.querySelector('span').classList.remove('marked');
-    }
-    el.querySelector('em').innerText = `(${simplifyLink(n.link).split('/')[0]})`;
+    el.querySelector('.card__author').href = n.link;
+    el.querySelector('.card__author').innerText = `${simplifyLink(n.link).split('/')[0]}`;
+    el.querySelector('.card__time').innerText = n.timestamp.toLocaleDateString(undefined, { month: 'long', day: '2-digit' });
   });
 }
 

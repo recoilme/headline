@@ -6,6 +6,7 @@
     <meta name="description" content="A minimalistic RSS reader.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="news.css" />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
@@ -21,7 +22,7 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
-    <!-- Loading indicator -->
+    <!-- https://codepen.io/veronicadev/pen/WJyOwG Loading indicator -->
     <div id="loading"><div></div></div>
 
     <!-- Menu bar -->
@@ -62,17 +63,29 @@
     </header>
 
     <!-- News feed -->
-    <article>
-      <ul id="news">
-        <template id="news-item">
-          <li>
-            <h3></h3>
-            <a><span></span><em></em></a>
-          </li>
-        </template>
-      </ul>
-    </article>
-
+    <section class="cards" id="cards">
+      <template id="card-item">
+        
+        <article class="card card--1">
+          <div class="card__img" id="card__img" ></div>
+          <div class="card__info-hover">
+              <div class="card__clock-info">
+                <span class="card__time">15 min</span>
+              </div>
+          </div>
+          
+          <a href="http://ya.ru" class="card_link">
+            <div class="card__img--hover" ></div>
+          </a>
+          <div class="card__info">
+             <!--<span class="card__category"> Recipe</span>-->
+            <h3 class="card__title mytext">Crisp Spanish tortilla Matzo brei</h3>
+            <span class="card__by">by <a href="#" class="card__author" title="author">Celeste Mills</a></span>
+          </div>
+        </article> 
+      
+      </template>    
+    </section>
     <script src="app.js"></script>
   </body>
 </html>
