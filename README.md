@@ -13,10 +13,6 @@ Android -  menu/add on main screen
 
 Web version: [https://recoilme.github.io/headline/](https://recoilme.github.io/headline/)
 
-Scan with QR code for install
-
-![qrcode](qrcode_recoilme.github.io.png)
-
 
 ## headline description
 
@@ -29,3 +25,7 @@ The story behind Headline and its origins is told [here](https://zserge.com/post
 How to use it? Just fork it and use it from Github Pages. Or simply copy all static files and open them locally.
 
 Feel free to fork or customize! If you found an issue - please make a PR.
+
+## QR code
+
+![qrcode](qrcode_recoilme.github.io.png)
