@@ -1,7 +1,7 @@
 {
     "name": "HeadlinePulse",
     "short_name": "HeadlinePulse",
-    "start_url": "https://recoilme.github.io/headline/",
+    "start_url": "index.html",
     "icons": [
         {
             "src": "icons/android-chrome-192x192.png",
