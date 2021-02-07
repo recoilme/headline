@@ -1,9 +1,10 @@
-const cacheName = 'headline-v1';
+const cacheName = 'headline-v1.0.1';
 const staticFiles = [
   './',
   './index.html',
   './app.js',
   './styles.css',
+  './news.css',
   './icons/android-chrome-192x192.png',
   './icons/android-chrome-512x512.png',
   './icons/apple-touch-icon.png',
