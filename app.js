@@ -2,9 +2,9 @@ const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURICompone
 
 const DEFAULT_FEEDS = [
   'https://news.google.com/rss',
-  'https://www.reddit.com/r/programming.rss',
+  'https://recostream.go.mail.ru/?n=6&stream_id=lenta_pulse_mail_ru&query_type=recommends',
   'https://www.reddit.com/r/golang.rss',
-  'https://www.reddit.com/r/todayilearned.rss',
+  'https://recostream.go.mail.ru/?source_filter_id=8283545368347858465&use_orig_imgs=1&title_length=150&ver=1.103.0&n=12&stream_id=source_only&query_type=recommends',
 ];
 
 const MAX_NEWS_PER_FEED = 500;
