@@ -81,15 +81,14 @@ function parseFeed(text) {
       }));
     case 'feed':
       return map(xml.documentElement.getElementsByTagName('entry'), item => ({
-        linkUrl =  map(item.getElementsByTagName('link'), link => {
+        link :  map(item.getElementsByTagName('link'), link => {
           const rel = link.getAttribute('rel');
           if (!rel || rel === 'alternate') {
             return link.getAttribute('href');
           }
         })[0],
-        link: linkUrl,
-        img: DEFAULT_IMG_PROXY(linkUrl),
-        img: tag(item, 'link'),
+        //img: DEFAULT_IMG_PROXY(linkUrl),
+        //img: tag(item, 'link'),
         title: tag(item, 'title'),
         timestamp: new Date(tag(item, 'updated')),
       }));
