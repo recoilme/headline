@@ -1,5 +1,5 @@
 const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
-const DEFAULT_IMG_PROXY = url => `https://ogimg.recoilme.vercel.app/api/og.go?url=${url}`;
+const DEFAULT_IMG_PROXY = url => `https://ogimg.recoilme.vercel.app/api/og.go?og=${url}`;
 //https://cors.zserge.com/?u=recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends 
 const DEFAULT_FEEDS = [
   'https://recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends',
