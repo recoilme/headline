@@ -1,6 +1,5 @@
 const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
-//https://ogimg.recoilme.vercel.app/api/og.go?url=https://i.trbna.com/preset/wysiwyg/2/61/0e0984cf811eb927ad03e1d88bea4.jpeg
-const DEFAULT_IMG_PROXY = url => `https://ogimg.recoilme.vercel.app/api/og.go?url=${encodeURIComponent(url)}`;
+const DEFAULT_IMG_PROXY = url => `https://ogimg.recoilme.vercel.app/api/og.go?url=${url}`;
 //https://cors.zserge.com/?u=recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends 
 const DEFAULT_FEEDS = [
   'https://recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends',
