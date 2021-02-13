@@ -1,4 +1,6 @@
 const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
+//https://ogimg.recoilme.vercel.app/api/og.go?url=https://i.trbna.com/preset/wysiwyg/2/61/0e0984cf811eb927ad03e1d88bea4.jpeg
+const DEFAULT_IMG_PROXY = url => `https://ogimg.recoilme.vercel.app/api/og.go?url=${encodeURIComponent(url)}`;
 //https://cors.zserge.com/?u=recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends 
 const DEFAULT_FEEDS = [
   'https://recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends',
@@ -73,7 +75,7 @@ function parseFeed(text) {
     case 'rss':
       return map(xml.documentElement.getElementsByTagName('item'), item => ({
         link: tag(item, 'link'),
-        img: tag(item, 'link'),
+        img: DEFAULT_IMG_PROXY(tag(item, 'link')),
         title: tag(item, 'title'),
         timestamp: new Date(tag(item, 'pubDate')),
       }));
@@ -85,7 +87,8 @@ function parseFeed(text) {
             return link.getAttribute('href');
           }
         })[0],
-        link: tag(linkUrl),
+        link: linkUrl,
+        img: DEFAULT_IMG_PROXY(linkUrl),
         img: tag(item, 'link'),
         title: tag(item, 'title'),
         timestamp: new Date(tag(item, 'updated')),
