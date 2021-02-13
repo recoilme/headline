@@ -1,5 +1,5 @@
 const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
-
+//https://cors.zserge.com/?u=recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends 
 const DEFAULT_FEEDS = [
   'https://recostream.go.mail.ru/?n=12&stream_id=huawei_test&query_type=recommends',
   'https://recostream.go.mail.ru/?source_filter_id=8283545368347858465&use_orig_imgs=1&title_length=150&ver=1.103.0&n=12&stream_id=source_only&query_type=recommends',
@@ -73,17 +73,20 @@ function parseFeed(text) {
     case 'rss':
       return map(xml.documentElement.getElementsByTagName('item'), item => ({
         link: tag(item, 'link'),
+        img: tag(item, 'link'),
         title: tag(item, 'title'),
         timestamp: new Date(tag(item, 'pubDate')),
       }));
     case 'feed':
       return map(xml.documentElement.getElementsByTagName('entry'), item => ({
-        link: map(item.getElementsByTagName('link'), link => {
+        linkUrl =  map(item.getElementsByTagName('link'), link => {
           const rel = link.getAttribute('rel');
           if (!rel || rel === 'alternate') {
             return link.getAttribute('href');
           }
         })[0],
+        link: tag(linkUrl),
+        img: tag(item, 'link'),
         title: tag(item, 'title'),
         timestamp: new Date(tag(item, 'updated')),
       }));
