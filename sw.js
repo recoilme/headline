@@ -1,4 +1,4 @@
-const cacheName = 'headlinepulse-v1';
+const cacheName = 'headlinepulse-v1.0.1';
 const staticFiles = [
   './',
   './index.html',
